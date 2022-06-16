@@ -27,3 +27,5 @@ Pull this code to your repository.
 
     npm start
 - You can check when you run [https://http://localhost:3000/](https://http://localhost:3000/) in your browser.
+## Use case 
+![PPhone](https://user-images.githubusercontent.com/49936367/174150296-9eade273-3949-4db8-be6e-6d93aa5606c6.jpg)
