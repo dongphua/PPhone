@@ -29,3 +29,5 @@ Pull this code to your repository.
 - You can check when you run [https://http://localhost:3000/](https://http://localhost:3000/) in your browser.
 ## Use case 
 ![PPhone](https://user-images.githubusercontent.com/49936367/174150296-9eade273-3949-4db8-be6e-6d93aa5606c6.jpg)
+## ERD
+![ERDPPhone](https://user-images.githubusercontent.com/49936367/174443535-81c3fe47-0004-44ec-8765-29523a2f6205.jpg)
