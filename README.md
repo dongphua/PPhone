@@ -8,7 +8,7 @@ This project was developed with:
 -   **Java 17 (JDK: 17.0.3.1)**
 -   **Spring Boot 2.7.0**
 -   **Maven**
--   **PostgreSQL 14.4**
+-   **PostgreSQL 12.11**
 -   **React 18.2.0**
 ## How to run
 Pull this code to your repository.
@@ -31,3 +31,6 @@ Pull this code to your repository.
 ![PPhone](https://user-images.githubusercontent.com/49936367/174150296-9eade273-3949-4db8-be6e-6d93aa5606c6.jpg)
 ## ERD
 ![ERDPPhone](https://user-images.githubusercontent.com/49936367/174443535-81c3fe47-0004-44ec-8765-29523a2f6205.jpg)
+## Diagram
+![TablePPhone](https://user-images.githubusercontent.com/49936367/174855394-da9dd699-9ebb-48e9-a9de-c8fb83192ec3.jpg)
+
