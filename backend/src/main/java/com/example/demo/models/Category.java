@@ -1,12 +1,10 @@
-package com.example.demo.model;
+package com.example.demo.models;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
+
+import javax.persistence.*;
+
 
 
 @Entity
@@ -19,7 +17,10 @@ public class Category implements Serializable{
   private int category_id;
   @Column(name = "category_name")
   private String category_name;
-
+  @OneToMany(mappedBy = "category")
+  private List<Product> product;
+  
+  
 	public Category() {
 
 	}
@@ -35,4 +36,16 @@ public class Category implements Serializable{
 	public String getCategoryName() {
 		return category_name;
 	}
+	
+	public void setCategoryName(String category_name) {
+		this.category_name=category_name;
+	}
+	
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setEmployees(List<Product> product) {
+        this.product = product;
+    }
 }

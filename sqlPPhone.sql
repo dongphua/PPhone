@@ -9,6 +9,7 @@ CREATE TABLE account(
 	account_password varchar(100) not null,
 	account_createat timestamp not null,
 	account_updateat timestamp not null,
+	account_isenable boolean not null,
 	role_id int not null,
 	constraint fk_role_id_account_role foreign key (role_id) references role(role_id)
 );
@@ -31,7 +32,7 @@ CREATE TABLE product(
 	product_id serial not null  primary key,
 	product_name varchar(100) not null,
 	product_image varchar(100) not null,
-	product_price varchar(100) not null,
+	product_price decimal(15,0) not null,
 	product_countinstock int not null,
 	product_isselling boolean not null,
 	product_createat timestamp not null,
@@ -70,5 +71,6 @@ CREATE TABLE review(
 	constraint fk_account_id_review_account foreign key (account_id) references account(account_id)
 );
 
+SELECT * FROM category WHERE category_name='Beta'
 
 
