@@ -33,3 +33,5 @@ Pull this code to your repository.
 ![ERDPPhone](https://user-images.githubusercontent.com/49936367/174443535-81c3fe47-0004-44ec-8765-29523a2f6205.jpg)
 ## Diagram
 ![TablePPhone](https://user-images.githubusercontent.com/49936367/174855394-da9dd699-9ebb-48e9-a9de-c8fb83192ec3.jpg)
+## SQL Diagram
+![SQLDiagramPPhone](https://user-images.githubusercontent.com/49936367/174866192-0fcb7e0f-f437-4ecc-90e6-54be5c600170.png)
