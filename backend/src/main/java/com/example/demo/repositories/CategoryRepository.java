@@ -17,12 +17,12 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	@Autowired
 	public static final CategoryRepository categoryRepository = null;
 
-	@Query(value = "SELECT * FROM category WHERE category_name= ?1", nativeQuery = true)
-	List<Category> findCategoryByName(String category_name);
+	@Query(value = "SELECT * FROM category WHERE category_name= :category_name", nativeQuery = true)
+	List<Category> findCategoryByName(@Param("category_name") String category_name);
 
-	@Query(value = "INSERT INTO category(category_name) VALUES (?1)", nativeQuery = true)
+	@Query(value = "INSERT INTO category(category_name) VALUES (:category_name)", nativeQuery = true)
 	Category insertNewCategory(@Param("category_name") String category_name);
 
-	@Query(value = "UPDATE category SET category_name= ?1 WHERE category_id= ?2", nativeQuery = true)
+	@Query(value = "UPDATE category SET category_name= :category_name WHERE category_id= :category_id", nativeQuery = true)
 	Category editCategoryName(String category_name, @Param("category_id") int category_id);
 }
