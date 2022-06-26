@@ -15,8 +15,8 @@ public class Category implements Serializable {
 	private int category_id;
 	@Column(name = "category_name")
 	private String category_name;
-//	@OneToMany(mappedBy = "category")
-//	private List<Product> product;
+	@OneToMany(mappedBy = "category")
+	private List<Product> product;
 
 	public Category() {
 
@@ -38,11 +38,11 @@ public class Category implements Serializable {
 		this.category_name = category_name;
 	}
 
-//	public List<Product> getProduct() {
-//		return product;
-//	}
+	public List<Product> getProduct() {
+		return product;
+	}
 
-//	public void setEmployees(List<Product> product) {
-//		this.product = product;
-//	}
+	public void setEmployees(List<Product> product) {
+		this.product = product;
+	}
 }
