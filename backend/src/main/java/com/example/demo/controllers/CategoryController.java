@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import lombok.*;
 import com.example.demo.entities.Category;
 import com.example.demo.repositories.CategoryRepository;
 
@@ -40,14 +40,14 @@ public class CategoryController {
 	@PostMapping("/api/category/{category_name}")
 	public void insertNewCategory(@PathVariable String category_name) {
 		Category category = new Category();
-		category.setCategoryName(category_name);
+		category.setCategory_name(category_name);
 		categoryRepository.save(category);
 	}
 
 	@PutMapping("/api/category/{category_id}")
 	public void editCategory(@PathVariable int category_id, String category_name) {
 		Category category = categoryRepository.getReferenceById(category_id);
-		category.setCategoryName(category_name);
+		category.setCategory_name(category_name);
 		categoryRepository.save(category);
 	}
 }
