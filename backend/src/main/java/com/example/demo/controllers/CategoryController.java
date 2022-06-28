@@ -40,14 +40,14 @@ public class CategoryController {
 	@PostMapping("/api/category/{category_name}")
 	public void insertNewCategory(@PathVariable String category_name) {
 		Category category = new Category();
-		category.setCategory_name(category_name);
+		category.setCategoryName(category_name);
 		categoryRepository.save(category);
 	}
 
 	@PutMapping("/api/category/{category_id}")
 	public void editCategory(@PathVariable int category_id, String category_name) {
 		Category category = categoryRepository.getReferenceById(category_id);
-		category.setCategory_name(category_name);
+		category.setCategoryName(category_name);
 		categoryRepository.save(category);
 	}
 }
