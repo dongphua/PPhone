@@ -17,6 +17,9 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	@Autowired
 	public static final CategoryRepository categoryRepository = null;
 
+	@Query(value = "SELECT category_id,category_name FROM category ORDER BY category_id", nativeQuery = true)
+	List<Category> findAllCategory();
+	
 	@Query(value = "SELECT * FROM category WHERE category_name= :category_name", nativeQuery = true)
 	List<Category> findCategoryByName(@Param("category_name") String category_name);
 

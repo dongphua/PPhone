@@ -29,7 +29,7 @@ public class CategoryController {
 
 	@GetMapping("/api/category")
 	public List<Category> findAllCategory() {
-		return categoryRepository.findAll();
+		return categoryRepository.findAllCategory();
 	}
 
 	@GetMapping("/api/category/{category_name}")
