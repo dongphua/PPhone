@@ -50,15 +50,16 @@ export default function AdminScreen() {
     <div className="main">
     <Sidebar />
     <div className="container">
+<h1>asadgda</h1>
     <MaterialReactTable
       columns={columns}
       data={parsedData}
       enableDensityToggle= {false}
+      enableRowNumbers
       state={{
         isLoading,
       }} />
-      eageagea
-          </div>
+          </div>        
     </div>
   );
 };
