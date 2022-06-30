@@ -54,7 +54,7 @@ function App() {
     <MaterialReactTable
       columns={columns}
       data={parsedData}
-      enableDensityToggle= {false}
+      enableDensityToggle
       state={{
         isLoading,
       }} />
