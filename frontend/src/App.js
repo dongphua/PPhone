@@ -1,17 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useMemo } from 'react';
+import MaterialReactTable from 'material-react-table';
+import Sidebar from './components/Sidebar'
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            Hello world
-        </p>
-      </header>
+    <div className="main">
+        <Link to="/admin">Invoices</Link>
+    <div className="container">
+          </div>
     </div>
   );
-}
+};
 
 export default App;
