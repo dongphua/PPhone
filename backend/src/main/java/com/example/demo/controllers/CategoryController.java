@@ -3,51 +3,42 @@ package com.example.demo.controllers;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import lombok.*;
-import com.example.demo.entities.Category;
-import com.example.demo.repositories.CategoryRepository;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import com.example.demo.entities.Category;
+import com.example.demo.services.CategoryService;
+
+
 
 @RestController
 public class CategoryController {
 
 	@Autowired
-	private CategoryRepository categoryRepository;
+	private CategoryService categoryService;
 
-	@GetMapping("/api/category")
+	@RequestMapping(value = { "/api/category" }, method = RequestMethod.GET)
 	public List<Category> findAllCategory() {
-		return categoryRepository.findAllCategory();
+		return categoryService.findAllCategory();
 	}
 
-	@GetMapping("/api/category/{category_name}")
+	@RequestMapping(value = { "/api/category/{category_name}" }, method = RequestMethod.GET)
 	public List<Category> findCategoryByName(@PathVariable String category_name) {
-		return categoryRepository.findCategoryByName(category_name);
+		return categoryService.findCategoryByName(category_name);
 	}
 
-	@PostMapping("/api/category/{category_name}")
-	public void insertNewCategory(@PathVariable String category_name) {
-		Category category = new Category();
-		category.setCategoryName(category_name);
-		categoryRepository.save(category);
+	@RequestMapping(value = { "/api/category/{category_name}" }, method = RequestMethod.POST)
+	public Category insertNewCategory(@PathVariable String category_name) {
+		return categoryService.insertNewCategory(category_name);
 	}
 
-	@PutMapping("/api/category/{category_id}")
-	public void editCategory(@PathVariable int category_id, String category_name) {
-		Category category = categoryRepository.getReferenceById(category_id);
-		category.setCategoryName(category_name);
-		categoryRepository.save(category);
+	@RequestMapping(value = { "/api/category/{category_id}" }, method = RequestMethod.PUT)
+	public Category editCategory(@PathVariable int category_id, String category_name) {
+		return categoryService.editCategoryName(category_id, category_name);
 	}
 }

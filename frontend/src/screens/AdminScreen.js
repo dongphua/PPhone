@@ -50,7 +50,9 @@ export default function AdminScreen() {
     <div className="main">
     <Sidebar />
     <div className="container">
+<h1>Category</h1>
 <h1>asadgda</h1>
+
     <MaterialReactTable
       columns={columns}
       data={parsedData}

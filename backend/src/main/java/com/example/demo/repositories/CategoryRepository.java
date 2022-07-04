@@ -28,4 +28,5 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 	@Query(value = "UPDATE category SET category_name= :category_name WHERE category_id= :category_id", nativeQuery = true)
 	Category editCategoryName(String category_name, @Param("category_id") int category_id);
+
 }
