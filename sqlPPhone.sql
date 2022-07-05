@@ -64,13 +64,18 @@ CREATE TABLE review(
 	review_id serial not null  primary key,
 	review_rating varchar(100),
 	review_comment varchar(5000),
-	review_createat varchar(100) not null,
+	review_createat timestamp not null,
 	product_id int not null,
 	account_id int not null,
 	constraint fk_product_id_review_product foreign key (product_id) references product(product_id),
 	constraint fk_account_id_review_account foreign key (account_id) references account(account_id)
 );
 
-SELECT * FROM category WHERE category_name='Beta'
+CREATE TABLE productimage(
+	productimage_id serial not null  primary key,
+	productimage_url varchar(500) not null,
+	product_id int not null,
+	constraint fk_product_id_product_image_product foreign key (product_id) references product(product_id)
+);
 
 

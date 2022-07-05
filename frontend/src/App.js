@@ -6,16 +6,15 @@ import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
 import Sidebar from './components/Sidebar'
 import { Outlet, Link } from "react-router-dom";
-
+import Carousel from './components/Carousel'
+import Navbar from './components/Navbar'
 function App() {
   
 
   return (
-    <div className="main">
-        <Link to="/admin">Invoices</Link>
     <div className="container">
-      !ca
-          </div>
+      <Navbar></Navbar>
+      <Carousel></Carousel>
     </div>
   );
 };

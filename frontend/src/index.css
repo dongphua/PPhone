@@ -21,7 +21,6 @@ body{
 
 .container{
   flex-grow: 1;
-  padding: 2em;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -116,4 +115,8 @@ body{
 
 .sidebar h1{
   text-align: center;
+}
+.carousel .slide img {
+  max-height: 300px;  /* change this to whatever you want */
+  width: auto;
 }
