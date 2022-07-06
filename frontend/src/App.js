@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar'
 import { Outlet, Link } from "react-router-dom";
 import Carousel from './components/Carousel'
 import Navbar from './components/Navbar'
+import Footers from './components/Footers';
 function App() {
   
 
@@ -15,6 +16,7 @@ function App() {
     <div className="container">
       <Navbar></Navbar>
       <Carousel></Carousel>
+      <Footers></Footers>
     </div>
   );
 };

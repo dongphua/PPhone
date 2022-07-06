@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Category;
+import com.example.demo.entities.Product;
 import com.example.demo.services.CategoryService;
+import com.example.demo.services.ProductService;
 
 
 
@@ -21,6 +23,9 @@ public class CategoryController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private ProductService productService;
 
 	@RequestMapping(value = { "/api/category" }, method = RequestMethod.GET)
 	public List<Category> findAllCategory() {
@@ -40,5 +45,11 @@ public class CategoryController {
 	@RequestMapping(value = { "/api/category/{category_id}" }, method = RequestMethod.PUT)
 	public Category editCategory(@PathVariable int category_id, String category_name) {
 		return categoryService.editCategoryName(category_id, category_name);
+	}
+	
+
+	@RequestMapping(value = { "/api/products" }, method = RequestMethod.GET)
+	public List<Product> findLessThan60000Products() {
+		return productService.getLessThan60000Products(productService.findAllProducts());
 	}
 }
