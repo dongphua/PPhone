@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
+import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.services.CategoryService;
 import com.example.demo.services.ProductService;
 

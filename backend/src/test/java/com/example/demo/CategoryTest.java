@@ -2,69 +2,68 @@ package com.example.demo;
 
 
 
+
+
+import static org.assertj.core.api.Assertions.allOf;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.Collection;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.mockito.Mockito.verify;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 import com.example.demo.repositories.CategoryRepository;
+import com.example.demo.services.CategoryService;
+import com.example.demo.services.ProductService;
 import com.example.demo.servicesimpl.CategoryServiceImpl;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class CategoryTest {
 
-    CategoryServiceImpl categoryServiceImpl;
-    CategoryRepository categoryRepository;
-    Category initialCategory;
-    Category expectedCategory;
+	@Mock
+	private CategoryRepository categoryRepository;
+	
+	@InjectMocks
+	private CategoryServiceImpl categoryServiceImpl;
 
-    @BeforeEach
-    void beforeEach() {
-    	categoryRepository = mock(CategoryRepository.class);
-    	categoryServiceImpl = new CategoryServiceImpl();
-//		initialUser = UserEntity.builder().id(1L).firstName("firstName").lastName("lastName")
-//				.fullName("fullName").build();
-//		expectedUser = initialUser.toBuilder().firstName("Huy").lastName("Nguyen").fullName("Huy Nguyen").build();
-        initialCategory = mock(Category.class);
-        expectedCategory = mock(Category.class);
-        when(categoryRepository.findById((int) 1L)).thenReturn(Optional.of(initialCategory));
-        when(categoryRepository.save(initialCategory)).thenReturn(expectedCategory);
-    }
-
-    @Test
-    void changeUserName_ShouldReturnUser_WhenDataValid() {
-//        UserEntity result = userServiceImpl.changeUserName(1L, "Huy", "Nguyen");
-////		ArgumentCaptor<UserEntity> userCaptor = ArgumentCaptor.forClass(UserEntity.class);
-////		verify(userRepository).save(userCaptor.capture());
-////		UserEntity updatedUser = userCaptor.getValue();
-////		assertThat(updatedUser.getFullName(), is("sfsdfsdf Nguyen"));
-////		assertThat(updatedUser.getFirstName(), is("sfsdfsdf"));
-////		assertThat(updatedUser.getLastName(), is(expectedUser.getLastName()));
-//        verify(initialUser).setFirstName("Huy");
-//        verify(initialUser).setLastName("Nguyen");
-//        verify(initialUser).setFullName("Huy Nguyen");
-//        assertThat(result, is(expectedUser));
-    }
-
+    
     @Test
     void getAllCategory_ShouldReturnAllCategory() {
 		Category category1 = new Category("Alpha");
 		Category category2 = new Category("Beta");
-		Category category3 = new Category("Charlie");
-		List<Category> allCategory = List.of(category1,category2,category3);
-        assertThat(allCategory, is(3));
+		List<Category> mock = new ArrayList<Category>();
+		mock.add(category1);
+		mock.add(category2);
+		List<Category> result = categoryServiceImpl.findAllCategory();
+        assertEquals(result.size(), 2);
     }
-
 }

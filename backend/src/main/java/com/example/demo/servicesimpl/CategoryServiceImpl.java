@@ -4,16 +4,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entities.Category;
 import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.services.CategoryService;
 
-@Component
+@Service
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
-	CategoryRepository categoryRepository;
+	private CategoryRepository categoryRepository;
+	
+	public CategoryServiceImpl(CategoryRepository categoryRepository) {
+		super();
+		this.categoryRepository = categoryRepository;
+	}
 	
 	@Override
 	public List<Category> findAllCategory() {

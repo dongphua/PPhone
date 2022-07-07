@@ -42,7 +42,4 @@ public class Category implements Serializable {
 		return product;
 	}
 
-	public void setEmployees(List<Product> product) {
-		this.product = product;
-	}
 }
