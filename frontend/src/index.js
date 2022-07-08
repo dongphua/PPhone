@@ -8,16 +8,15 @@ import {
 } from "react-router-dom";
 import App from './App';
 import AdminScreen from './screens/AdminScreen';
+import CategoryScreen from './screens/category/CategoryScreen';
 import reportWebVitals from './reportWebVitals';
+import HomeScreen from './screens/HomeScreen';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}/>
-        <Route path="/admin" element={<AdminScreen/>} />
-    </Routes>
-  </BrowserRouter>
+      <App/>
+  </BrowserRouter>,
 );
 
 // If you want to start measuring performance in your app, pass a function

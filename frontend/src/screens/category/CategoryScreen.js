@@ -1,12 +1,9 @@
-import '../App.css';
+import '../../App.css';
 import axios from "axios";
-import React, { useState, useEffect, Fragment} from "react";
+import React, { useState, useEffect } from "react";
 import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
-import Sidebar from '../components/Sidebar'
-import CategoryScreen from "../screens/category/CategoryScreen"
-import { Link } from '@mui/material';
-import { Routes, Router, Route} from 'react-router-dom';
+import Sidebar from '../../components/Sidebar'
 
 export default function AdminScreen() {
   const [remoteData, setRemoteData] = useState([]);
@@ -50,16 +47,16 @@ export default function AdminScreen() {
   );
 
   return (
- 
-    <div className="main">
-    <Sidebar />
     <div className="container">
-      <Routes>
-       <Route  path="category" element={<CategoryScreen/>} />
-      </Routes>
-    </div>
-    </div>
-
-
+<h1>Category</h1>
+    <MaterialReactTable
+      columns={columns}
+      data={parsedData}
+      enableDensityToggle= {false}
+      enableRowNumbers
+      state={{
+        isLoading,
+      }} />
+          </div>        
   );
 };

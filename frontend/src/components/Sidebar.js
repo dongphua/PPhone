@@ -2,7 +2,7 @@ import SidebarItem from "./SidebarItem"
 import items from "./DataSidebar.json"
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import NavLink from 'react-bootstrap/NavLink';
 export default function Sidebar(){
     return (
         <div className="sidebar">

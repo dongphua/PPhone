@@ -11,7 +11,7 @@
             {
                 "title": "About",
                 "icon": "bi-info-circle-fill",
-                "path": "/about"
+                "path": "/admin/category"
             },
             {
                 "title": "Contact",
