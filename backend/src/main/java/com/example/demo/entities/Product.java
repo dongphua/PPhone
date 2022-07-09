@@ -66,63 +66,63 @@ public class Product implements Serializable {
 		this.product_updateat = product_updateat;
 	}
 
-	public void setProduct_id(int product_id) {
+	public void setProductId(int product_id) {
 		this.product_id = product_id;
 	}
 
-	public String getProduct_name() {
+	public String getProductName() {
 		return product_name;
 	}
 
-	public void setProduct_name(String product_name) {
+	public void setProductName(String product_name) {
 		this.product_name = product_name;
 	}
 
-	public String getProduct_image() {
+	public String getProductImage() {
 		return product_image;
 	}
 
-	public void setProduct_image(String product_image) {
+	public void setProductImage(String product_image) {
 		this.product_image = product_image;
 	}
 
-	public double getProduct_price() {
+	public double getProductPrice() {
 		return product_price;
 	}
 
-	public void setProduct_price(double product_price) {
+	public void setProductPrice(double product_price) {
 		this.product_price = product_price;
 	}
 
-	public int getProduct_countinstock() {
+	public int getProductCountinstock() {
 		return product_countinstock;
 	}
 
-	public void setProduct_countinstock(int product_countinstock) {
+	public void setProductCountinstock(int product_countinstock) {
 		this.product_countinstock = product_countinstock;
 	}
 
-	public boolean isProduct_isselling() {
+	public boolean isProductIsselling() {
 		return product_isselling;
 	}
 
-	public void setProduct_isselling(boolean product_isselling) {
+	public void setProductIsselling(boolean product_isselling) {
 		this.product_isselling = product_isselling;
 	}
 
-	public Timestamp getProduct_createat() {
+	public Timestamp getProductCreateat() {
 		return product_createat;
 	}
 
-	public void setProduct_createat(Timestamp product_createat) {
+	public void setProductCreateat(Timestamp product_createat) {
 		this.product_createat = product_createat;
 	}
 
-	public Timestamp getProduct_updateat() {
+	public Timestamp getProductUpdateat() {
 		return product_updateat;
 	}
 
-	public void setProduct_updateat(Timestamp product_updateat) {
+	public void setProductUpdateat(Timestamp product_updateat) {
 		this.product_updateat = product_updateat;
 	}
 

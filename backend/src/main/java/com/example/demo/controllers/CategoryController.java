@@ -48,9 +48,4 @@ public class CategoryController {
 		return categoryService.editCategoryName(category_id, category_name);
 	}
 	
-
-	@RequestMapping(value = { "/api/products" }, method = RequestMethod.GET)
-	public List<Product> findLessThan60000Products() {
-		return productService.getLessThan60000Products(productService.findAllProducts());
-	}
 }
