@@ -34,10 +34,8 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Category insertNewCategory(String category_name) {
-		Category category = new Category();
-		category.setCategoryName(category_name);
-		return categoryRepository.save(category);
+	public void insertNewCategory(Category category) {
+		categoryRepository.save(category);
 	}
 
 	@Override

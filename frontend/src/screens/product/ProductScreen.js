@@ -1,25 +1,20 @@
 import '../../App.css';
 import axios from "axios";
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
 import Sidebar from '../../components/Sidebar'
-import { useHistory } from 'react-router-dom';
 
 export default function AdminScreen() {
   const [remoteData, setRemoteData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
-  const routeChange = () =>{ 
-    let path = `/admin/categoryadd`; 
-    navigate(path);
-  }
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       const response = await fetch(
-        'http://localhost:8080/api/category',
+        'http://localhost:8080/api/product',
       );
       const json = await response.json();
       setRemoteData(json);
@@ -30,9 +25,9 @@ export default function AdminScreen() {
 
   const parsedData = useMemo(
     () =>
-      remoteData.map((userData) => ({
-        categoryId: userData.categoryId,
-        categoryName: userData.categoryName,
+      remoteData.map((productData) => ({
+        productId: productData.productId,
+        productName: productData.productName,
       })) ?? [],
     [remoteData],
   );
@@ -40,13 +35,12 @@ export default function AdminScreen() {
   const columns = useMemo(
     () => [
       {
-        header: 'Category ID',
-        id: 'categoryId',
-        enableEditing: false,
+        header: 'ID',
+        id: 'productId',
       },
       {
-        header: 'Category Name',
-        id: 'categoryName',
+        header: 'Name',
+        id: 'productName',
       },
   
     ],
@@ -55,15 +49,12 @@ export default function AdminScreen() {
 
   return (
     <div className="container">
-    <h1>Category</h1>
-    <button type="button" className="btn btn-primary" onClick={routeChange}>Add Category</button>
+
     <MaterialReactTable
       columns={columns}
       data={parsedData}
       enableDensityToggle= {false}
       enableRowNumbers
-      enableEditing
-      enableRowActions
       state={{
         isLoading,
       }} />

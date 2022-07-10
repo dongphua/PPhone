@@ -2,6 +2,8 @@ package com.example.demo.services;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +19,7 @@ public interface CategoryService {
 	
 	public List<Category> findCategoryByName(String category_name);
 
-	public Category insertNewCategory(String category_name);
+	public void insertNewCategory(Category category);
 
 	public Category editCategoryName(int category_id, String category_name);
 }
