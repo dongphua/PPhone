@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,6 @@ import com.example.demo.entities.Product;
 import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.services.CategoryService;
 import com.example.demo.services.ProductService;
-
 
 
 @RestController
@@ -42,9 +42,14 @@ public class CategoryController {
 		return categoryService.findAllCategory();
 	}
 
-	@RequestMapping(value = { "/api/category/{category_name}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/api/category/categoryname/{category_name}" }, method = RequestMethod.GET)
 	public List<Category> findCategoryByName(@PathVariable String category_name) {
 		return categoryService.findCategoryByName(category_name);
+	}
+	
+	@RequestMapping(value = { "/api/category/categoryid/{category_id}" }, method = RequestMethod.GET)
+	public List<Category> findCategoryById(@PathVariable int category_id) {
+		return categoryService.findCategoryById(category_id);
 	}
 
 	@RequestMapping(value = { "/api/category" }, method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
@@ -54,8 +59,9 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = { "/api/category/{category_id}" }, method = RequestMethod.PUT)
-	public Category editCategory(@PathVariable int category_id, String category_name) {
-		return categoryService.editCategoryName(category_id, category_name);
+	@ResponseBody
+	public void editCategoryName(@PathVariable int category_id, @RequestBody Category category) {
+		categoryService.editCategoryName(category_id, category);
 	}
 	
 }

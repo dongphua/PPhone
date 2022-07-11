@@ -6,15 +6,17 @@ import java.util.Collections;
 import java.util.Objects;
 //import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Account;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 public class UserDetailsImpl implements UserDetails {
+
     private static final long serialVersionUID = 1L;
 
     private Long id;
@@ -50,11 +52,9 @@ public class UserDetailsImpl implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
-
     public Long getId() {
         return id;
     }
-
     public String getEmail() {
         return email;
     }

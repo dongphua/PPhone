@@ -1,6 +1,7 @@
 package com.example.demo.servicesimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,8 +12,9 @@ import com.example.demo.entities.Category;
 import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.services.CategoryService;
 
-@Service
+
 @Transactional
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
@@ -32,6 +34,11 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> findCategoryByName(String category_name) {
 		return categoryRepository.findCategoryByName(category_name);
 	}
+	
+	@Override
+	public List<Category> findCategoryById(int category_id) {
+		return categoryRepository.findCategoryById(category_id);
+	}
 
 	@Override
 	public void insertNewCategory(Category category) {
@@ -39,9 +46,10 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Category editCategoryName(int category_id, String category_name) {
-		Category category = categoryRepository.getReferenceById(category_id);
-		category.setCategoryName(category_name);
-		return categoryRepository.save(category);
+	public void editCategoryName(int category_id, Category category) {
+		Optional<Category> categoryOptional = categoryRepository.findById(category_id);
+		Category categoryEdit = categoryOptional.get();
+		categoryRepository.save(categoryEdit);
 	}
+
 }

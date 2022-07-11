@@ -48,7 +48,6 @@ export default function AdminScreen() {
         header: 'Category Name',
         id: 'categoryName',
       },
-  
     ],
     [],
   );
@@ -62,8 +61,6 @@ export default function AdminScreen() {
       data={parsedData}
       enableDensityToggle= {false}
       enableRowNumbers
-      enableEditing
-      enableRowActions
       state={{
         isLoading,
       }} />

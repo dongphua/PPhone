@@ -1,5 +1,6 @@
 package com.example.demo.sercurity.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,7 +15,7 @@ import com.example.demo.repositories.AccountRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-
+    @Autowired
     private final AccountRepository accountRepository;
 
     public UserDetailsServiceImpl (AccountRepository accountRepository) {
