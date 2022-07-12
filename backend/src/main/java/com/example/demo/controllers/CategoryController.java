@@ -52,7 +52,7 @@ public class CategoryController {
 		return categoryService.findCategoryById(category_id);
 	}
 
-	@RequestMapping(value = { "/api/category" }, method = RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = { "/api/category" }, method = RequestMethod.POST)
 	@ResponseBody
 	public void insertNewCategory(@RequestBody Category category) {
 		categoryService.insertNewCategory(category);

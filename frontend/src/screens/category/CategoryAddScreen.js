@@ -7,7 +7,7 @@ import MaterialReactTable from 'material-react-table';
 import Sidebar from '../../components/Sidebar'
 import { useHistory } from 'react-router-dom';
 
-export default function AdminScreen() {
+export default function CategoryAddScreen() {
   const [remoteData, setRemoteData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

@@ -1,11 +1,11 @@
 import '../../App.css';
 import axios from "axios";
 import React, { useState, useEffect  } from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link }from "react-router-dom";
 import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
 import Sidebar from '../../components/Sidebar'
-import { useHistory } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export default function AdminScreen() {
   const [remoteData, setRemoteData] = useState([]);
@@ -61,6 +61,21 @@ export default function AdminScreen() {
       data={parsedData}
       enableDensityToggle= {false}
       enableRowNumbers
+      enableRowActions
+      renderRowActions={({ row }) => (
+      <div style={{ display: 'flex', flexWrap: 'nowrap', gap: '0.5rem' }}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            navigate(`/admin/categoryedit/${row.original.categoryId}`)}
+
+          }
+        >
+          Edit
+        </Button>
+        </div>
+        )}
       state={{
         isLoading,
       }} />

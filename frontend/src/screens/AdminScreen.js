@@ -6,6 +6,7 @@ import MaterialReactTable from 'material-react-table';
 import Sidebar from '../components/Sidebar'
 import CategoryScreen from "../screens/category/CategoryScreen"
 import CategoryAddScreen from "../screens/category/CategoryAddScreen"
+import CategoryEditScreen from "../screens/category/CategoryEditScreen"
 import { Link } from '@mui/material';
 import { Routes, Router, Route} from 'react-router-dom';
 
@@ -58,6 +59,7 @@ export default function AdminScreen() {
       <Routes>
        <Route  path="category" element={<CategoryScreen/>} />
        <Route  path="categoryadd" element={<CategoryAddScreen/>} />
+       <Route  path="categoryedit/:id" element={<CategoryEditScreen/>} />
       </Routes>
     </div>
     </div>

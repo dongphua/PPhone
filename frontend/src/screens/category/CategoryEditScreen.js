@@ -1,17 +1,17 @@
 import '../../App.css';
 import axios from "axios";
 import React, { useState, useEffect  } from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
 import Sidebar from '../../components/Sidebar'
 import { useHistory } from 'react-router-dom';
 
-export default function AdminScreen() {
+export default function CategoryEditScreen() {
+  let {id}=useParams();
   const [remoteData, setRemoteData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   let resStatus;
@@ -20,6 +20,20 @@ export default function AdminScreen() {
     let path = `/admin`; 
     navigate(path);
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const response = await fetch(
+        `http://localhost:8080/api/category/categoryid/${id}`,
+      );
+      const json = await response.json();
+      setRemoteData(json);
+      setIsLoading(false);
+      console.log(response)
+    };
+    fetchData();
+  }, []);
   let handleSubmit = async (e) => {
     e.preventDefault();
     if (name.length===0){
@@ -55,7 +69,7 @@ export default function AdminScreen() {
     <div className="container">
        <form className="form" onSubmit={handleSubmit}>
         <div>
-          <h1>Add category</h1>
+          <h1>Add category {remoteData.categoryName}</h1>
         </div>
             <div>
             <div className="message">{message ? <p>{message}</p> : null}</div>

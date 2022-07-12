@@ -47,9 +47,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public void editCategoryName(int category_id, Category category) {
-		Optional<Category> categoryOptional = categoryRepository.findById(category_id);
-		Category categoryEdit = categoryOptional.get();
-		categoryRepository.save(categoryEdit);
+		Category found = categoryRepository.getReferenceById(category_id);
+		found.setCategoryName(category.getCategoryName());
+		categoryRepository.save(found);
 	}
 
 }
