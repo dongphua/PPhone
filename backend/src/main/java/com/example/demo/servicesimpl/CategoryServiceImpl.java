@@ -41,15 +41,16 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public void insertNewCategory(Category category) {
-		categoryRepository.save(category);
+	public Category insertNewCategory(Category category) {
+		return categoryRepository.save(category);
 	}
 
 	@Override
-	public void editCategoryName(int category_id, Category category) {
+	public Category editCategoryName(int category_id, Category category) {
 		Category found = categoryRepository.getReferenceById(category_id);
 		found.setCategoryName(category.getCategoryName());
-		categoryRepository.save(found);
+		return categoryRepository.save(found);
 	}
+
 
 }

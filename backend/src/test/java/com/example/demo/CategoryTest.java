@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 import java.util.Collection;
 
 import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,7 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -54,6 +56,10 @@ public class CategoryTest {
 	@InjectMocks
 	private CategoryServiceImpl categoryServiceImpl;
 
+	@Before
+	public void init() {
+		MockitoAnnotations.openMocks(this);
+	}
     
     @Test
     void getAllCategory_ShouldReturnAllCategory() {
@@ -62,6 +68,7 @@ public class CategoryTest {
 		List<Category> mock = new ArrayList<Category>();
 		mock.add(category1);
 		mock.add(category2);
+		
 		List<Category> result = categoryServiceImpl.findAllCategory();
         assertEquals(result.size(), 2);
     }

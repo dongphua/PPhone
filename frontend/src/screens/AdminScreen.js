@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import MaterialReactTable from 'material-react-table';
 import Sidebar from '../components/Sidebar'
 import CategoryScreen from "../screens/category/CategoryScreen"
+import ProductScreen from "../screens/product/ProductScreen"
 import CategoryAddScreen from "../screens/category/CategoryAddScreen"
 import CategoryEditScreen from "../screens/category/CategoryEditScreen"
 import { Link } from '@mui/material';
@@ -60,6 +61,9 @@ export default function AdminScreen() {
        <Route  path="category" element={<CategoryScreen/>} />
        <Route  path="categoryadd" element={<CategoryAddScreen/>} />
        <Route  path="categoryedit/:id" element={<CategoryEditScreen/>} />
+       <Route  path="product" element={<ProductScreen/>} />
+       <Route  path="productadd" element={<ProductScreen/>} />
+       <Route  path="productedit/:id" element={<ProductScreen/>} />
       </Routes>
     </div>
     </div>

@@ -9,9 +9,14 @@
                 "path": "/"
             },
             {
-                "title": "About",
+                "title": "Category",
                 "icon": "bi-info-circle-fill",
                 "path": "/admin/category"
+            },
+            {
+                "title": "Product",
+                "icon": "bi-info-circle-fill",
+                "path": "/admin/product"
             },
             {
                 "title": "Contact",

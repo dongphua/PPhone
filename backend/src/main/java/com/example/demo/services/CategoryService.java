@@ -21,9 +21,9 @@ public interface CategoryService {
 	
 	public List<Category> findCategoryById(int category_id);
 	
-	public void insertNewCategory(Category category);
+	public Category insertNewCategory(Category category);
 
-	public void editCategoryName(int category_id, Category category);
+	public Category editCategoryName(int category_id, Category category);
 
 
 }

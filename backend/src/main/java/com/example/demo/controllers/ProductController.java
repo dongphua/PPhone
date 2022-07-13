@@ -28,7 +28,7 @@ import com.example.demo.services.ProductService;
 @RestController
 @RequestMapping(produces="application/json")
 @CrossOrigin(origins="*")
-public class CategoryController {
+public class ProductController {
 
 	@Autowired
 	private CategoryService categoryService;
@@ -37,31 +37,31 @@ public class CategoryController {
 
 	private ProductService productService;
 
-	@RequestMapping(value = { "/api/category" }, method = RequestMethod.GET)
-	public List<Category> findAllCategory() {
-		return categoryService.findAllCategory();
+	@RequestMapping(value = { "/api/product" }, method = RequestMethod.GET)
+	public List<Product> findAllProduct() {
+		return productService.findAllProduct();
 	}
 
-	@RequestMapping(value = { "/api/category/categoryname/{category_name}" }, method = RequestMethod.GET)
-	public List<Category> findCategoryByName(@PathVariable String category_name) {
-		return categoryService.findCategoryByName(category_name);
-	}
-	
-	@RequestMapping(value = { "/api/category/categoryid/{category_id}" }, method = RequestMethod.GET)
-	public List<Category> findCategoryById(@PathVariable int category_id) {
-		return categoryService.findCategoryById(category_id);
-	}
-
-	@RequestMapping(value = { "/api/category" }, method = RequestMethod.POST)
-	@ResponseBody
-	public Category insertNewCategory(@RequestBody Category category) {
-		return categoryService.insertNewCategory(category);
-	}
-
-	@RequestMapping(value = { "/api/category/{category_id}" }, method = RequestMethod.PUT)
-	@ResponseBody
-	public Category editCategoryName(@PathVariable int category_id, @RequestBody Category category) {
-		return categoryService.editCategoryName(category_id, category);
-	}
+//	@RequestMapping(value = { "/api/category/categoryname/{category_name}" }, method = RequestMethod.GET)
+//	public List<Category> findCategoryByName(@PathVariable String category_name) {
+//		return categoryService.findCategoryByName(category_name);
+//	}
+//	
+//	@RequestMapping(value = { "/api/category/categoryid/{category_id}" }, method = RequestMethod.GET)
+//	public List<Category> findCategoryById(@PathVariable int category_id) {
+//		return categoryService.findCategoryById(category_id);
+//	}
+//
+//	@RequestMapping(value = { "/api/category" }, method = RequestMethod.POST)
+//	@ResponseBody
+//	public void insertNewCategory(@RequestBody Category category) {
+//		categoryService.insertNewCategory(category);
+//	}
+//
+//	@RequestMapping(value = { "/api/category/{category_id}" }, method = RequestMethod.PUT)
+//	@ResponseBody
+//	public void editCategoryName(@PathVariable int category_id, @RequestBody Category category) {
+//		categoryService.editCategoryName(category_id, category);
+//	}
 	
 }

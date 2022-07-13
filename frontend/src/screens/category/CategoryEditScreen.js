@@ -30,7 +30,8 @@ export default function CategoryEditScreen() {
       const json = await response.json();
       setRemoteData(json);
       setIsLoading(false);
-      console.log(response)
+      console.log(json[0].categoryName)
+      setName(json[0].categoryName)
     };
     fetchData();
   }, []);
@@ -41,8 +42,8 @@ export default function CategoryEditScreen() {
     }
     else{
     try {
-      let res = await fetch(`http://localhost:8080/api/category`, {
-        method: 'POST',
+      let res = await fetch(`http://localhost:8080/api/category/${id}`, {
+        method: 'PUT',
         headers: {        'Content-Type': 'application/json',
         'Authorization': 'Bearer my-token',
         'My-Custom-Header': 'foobar'},
@@ -54,7 +55,7 @@ export default function CategoryEditScreen() {
       })
       if (resStatus === 200) {
         setName("");
-        setMessage("Category created successfully");
+        setMessage("Category edit successfully");
         
       } else {
         setMessage("Some error occured");
@@ -69,7 +70,7 @@ export default function CategoryEditScreen() {
     <div className="container">
        <form className="form" onSubmit={handleSubmit}>
         <div>
-          <h1>Add category {remoteData.categoryName}</h1>
+          <h1>Edit category {id}</h1>
         </div>
             <div>
             <div className="message">{message ? <p>{message}</p> : null}</div>
@@ -85,7 +86,7 @@ export default function CategoryEditScreen() {
             <div>
               <label></label>
               <button type="submit" className="btn btn-primary">
-                Add
+                Edit
               </button>
             </div>
       </form>
